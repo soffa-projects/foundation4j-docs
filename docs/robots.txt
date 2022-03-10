@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://foundation.soffa.dev/sitemap.xml.gz
+Sitemap: https://foundation4j.soffa.dev/sitemap.xml.gz
