@@ -6,7 +6,7 @@ meta:
 
 branding:
   title: Foundation
-  label: by soffa
+  label: v0.9.1
   #logo: static/img/logo5.svg
   #logoDark: static/img/logo5.svg
 links:
@@ -23,7 +23,7 @@ links:
   target: _blank
 
 footer:
-  copyright: "SOFFA, {{ year }}"
+  copyright: "SOFFALabs {{ year }}"
 
 integrations:
   googleAnalytics:
