@@ -1,6 +1,6 @@
 input: .
 output: ./docs
-url: https://foundation.soffa.dev
+url: https://foundation4j.soffa.dev
 meta:
   title: " | SOFFA"
 
@@ -11,14 +11,14 @@ branding:
   #logoDark: static/img/logo5.svg
 links:
 - text: Accueil
-  link: https://foundation.soffa.dev
+  link: https://foundation4j.soffa.dev
   icon: home
 - text: Discussions
-  link: https://github.com/soffalabs/foundation-docs/discussions
+  link: https://github.com/soffalabs/foundation4j/discussions
   icon: comment-discussion
   target: _blank
 - text: Github
-  link: https://github.com/soffalabs/foundation-docs
+  link: https://github.com/soffalabs/foundation4j
   icon: mark-github
   target: _blank
 
