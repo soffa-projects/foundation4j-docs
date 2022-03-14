@@ -16,7 +16,6 @@ jobs:
         run: |
           ls -alr /tmp/tmp.*
           sed -i -e "s|1800px|1400px|g" /tmp/tmp.*/resources/css/retype.css
-          touch /tmp/tmp.*/resources/css/retype-custom.css
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: docs
