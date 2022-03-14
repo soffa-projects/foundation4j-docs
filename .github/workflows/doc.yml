@@ -7,15 +7,14 @@ on:
 
 jobs:
   publish:
-    name: Publish to the docs branch
+    name: Build docs
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: retypeapp/action-build@v2
       - name: update page width
         run: |
-          pwd
-          ls -alr
+          ls -alr /tmp/*
           sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" docs/resources/css/retype.css
       - uses: retypeapp/action-github-pages@v2
         with:
