@@ -2,7 +2,7 @@ input: .
 output: ./docs
 url: https://foundation4j.soffa.dev
 meta:
-  title: " | SOFFA"
+  title: " | Foundation"
 
 branding:
   title: Foundation
@@ -28,3 +28,5 @@ footer:
 integrations:
   googleAnalytics:
     id: G-LCZPLJEKJW
+
+poweredByRetype: true
