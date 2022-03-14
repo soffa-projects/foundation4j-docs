@@ -25,3 +25,13 @@ Il est important pour nous d'exposer de façon explicite notre vision produit. N
 
 1. Le code source de tout le framework est et sera toujours gratuit, hébergé sur Github, dans le domaine public
 2. Toutes les librairies Java seront toujours publiées sur MavenCentral (https://search.maven.org/)
+
+## Projet Bantu 
+
+Le terme **doogfooding** ou [Eating your own dog food](https://en.wikipedia.org/wiki/Eating_your_own_dog_food) remonte à un mail interne chez Microsoft en 1988.
+Il s'agit d'une pratique qui consiste à utiliser ses propres produits afin de se confronter directement à ses qualités et défauts.
+
+Pour garantir la qualité et l'expérience développeurs derrière Foundation, nous sommes aux premières lignes en utilisant toutes les briques Foundation dans
+un projet ambitieux [Bantu](https://developers.bantu.dev).
+
+Ce projet fournira à moyen terme des métriques très concrètes sur ce qu'il est possible de faire avec ce socle technique.
