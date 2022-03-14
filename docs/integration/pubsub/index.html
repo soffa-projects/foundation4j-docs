@@ -12,23 +12,18 @@
     <meta name="generator" content="Retype 2.0">
 
     <!-- Primary Meta Tags -->
-    <title>Bien d&#233;marrer | Foundation</title>
-    <meta name="title" content="Bien démarrer | Foundation">
-    <meta name="description" content="Nous recommandons l'utilisation de Foundation si vous souhaitez construire un projet entreprise long terme (de taille moyenne ou grande) avec" />
+    <title>Pubsub | Foundation</title>
+    <meta name="title" content="Pubsub | Foundation">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://foundation4j.soffa.dev/start/">
-    <meta property="og:title" content="Bien démarrer | Foundation">
-    <meta property="og:description" content="Nous recommandons l'utilisation de Foundation si vous souhaitez construire un projet entreprise long terme (de taille moyenne ou grande) avec">
-    <meta property="og:image" content="https://foundation4j.soffa.dev/static/img/project_structure.png">
+    <meta property="og:url" content="https://foundation4j.soffa.dev/integration/pubsub/">
+    <meta property="og:title" content="Pubsub | Foundation">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://foundation4j.soffa.dev/start/">
-    <meta property="twitter:title" content="Bien démarrer | Foundation">
-    <meta property="twitter:description" content="Nous recommandons l'utilisation de Foundation si vous souhaitez construire un projet entreprise long terme (de taille moyenne ou grande) avec">
-    <meta property="twitter:image" content="https://foundation4j.soffa.dev/static/img/project_structure.png">
+    <meta property="twitter:url" content="https://foundation4j.soffa.dev/integration/pubsub/">
+    <meta property="twitter:title" content="Pubsub | Foundation">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -37,7 +32,6 @@
     <script type="text/javascript" src="/resources/js/config.js?v=2.0.700615266395" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
     <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.700615266395" defer></script>
-    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.0.700615266395" defer></script>
 </head>
 <body>
     <div id="docs-app" class="relative text-base antialiased text-gray-700 bg-white font-body dark:bg-dark-850 dark:text-dark-300">
@@ -200,230 +194,14 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="bien-démarrer" class="break-words">
+<doc-anchor-target id="pubsub" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#bien-démarrer">#</doc-anchor-trigger>
-        <span>Bien démarrer</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pubsub">#</doc-anchor-trigger>
+        <span>Pubsub</span>
     </h1>
 </doc-anchor-target>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Nous recommandons l&#x27;utilisation de Foundation si vous souhaitez construire un projet entreprise long terme (de taille moyenne ou grande) avec
-une importante dans la maintenabilité et la qualité.</p>
-        </div>
-    </div>
-</div>
-<p>Pour démarrer un projet avec Foundation4j, nous recommandons de télécharger le repository <a href="https://github.com/soffalabs/foundation-java-starter">foundation-java-starter</a>,
-puis suivre les 2 étapes suivantes:</p>
-<ol>
-<li>Changer le nom du projet</li>
-</ol>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">settings.gradle.kts</div>
-<pre class="language-groovy"><code v-pre class="language-groovy">rootProject.name = &quot;foundation-starter&quot; //TODO: Change this to your project name
-
-// Cette partie ne devrait pas être modifiée si vous restez dans la structure
-// par défaut proposée.
-listOf(&quot;api&quot;, &quot;service&quot;).forEach {
-    include(&quot;:app-$it&quot;)
-    project(&quot;:app-$it&quot;).name = rootProject.name + &quot;-$it&quot;
-}</code></pre>
-</doc-codeblock></div>
-<ol start="2">
-<li>Personnaliser le package, par défault à <code v-pre>foundation.app</code></li>
-</ol>
-<p>Voilà, vous pouvez commencer à travailler !</p>
-<doc-anchor-target id="anatomie-dun-projet">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#anatomie-dun-projet">#</doc-anchor-trigger>
-        <span>Anatomie d&#x27;un projet</span>
-    </h2>
-</doc-anchor-target>
-<p>Par défault, un projet créé avec le client <code v-pre>foundation</code> utilisera le template projet que nous recommandons.
-Ce template est un projet Gradle avec deux modules : <code v-pre>api</code> et <code v-pre>service</code>.</p>
-<p><figure class="content-center">
-    <img src="/static/img/project_structure.png" alt="Anatomie d'un projet Foundation" />
-    <figcaption class="caption">Anatomie d&#x27;un projet Foundation</figcaption>
-</figure>
-</p>
-<doc-anchor-target id="module-api">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#module-api">#</doc-anchor-trigger>
-        <span>Module API</span>
-    </h3>
-</doc-anchor-target>
-<p>Contient la description, avec un vocabulatire fonctionnel, de ce que l&#x27;application <strong>doit</strong> implémenter come <strong>usecases</strong> et <strong>ressources</strong>.</p>
-<p>Dans les packages qui sont proposés, vous retrouvez:</p>
-<doc-anchor-target id="package-apischema">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-apischema">#</doc-anchor-trigger>
-        <span>Package api.schema</span>
-    </h4>
-</doc-anchor-target>
-<p>Ce package contient le modèle de données (POJO) manipulés et produits par les usecases.</p>
-<doc-anchor-target id="package-apiusecase">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-apiusecase">#</doc-anchor-trigger>
-        <span>Package api.usecase</span>
-    </h4>
-</doc-anchor-target>
-<p>Ce package contient les interfaces décrivant les fonctionnalités du projet. Chaque usecase utilise un verbe en anglais pour clairement décrire
-la responsabilité.</p>
-<p>En terme de bonnes pratiques, nous recommandons ce qui suit:</p>
-<ul>
-<li>Un verbe commençant par <code v-pre>Get</code> indique qu&#x27;il s&#x27;agit d&#x27;une opération de lecture (Query)</li>
-<li>Un verbe commençant par <code v-pre>On</code> indique qu&#x27;il s&#x27;git d&#x27;un événement (Event)</li>
-<li>Tous les autres usecases sont considérés comme des opérations d&#x27;écriture (Command)</li>
-</ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Echo.java</div>
-<pre class="language-java"><code v-pre class="language-java">package foundation.app.api.usecase;
-
-import dev.soffa.foundation.core.UseCase;
-import foundation.app.api.schema.EchoInput;
-import foundation.app.api.schema.Message;
-
-public interface Echo extends UseCase&lt;EchoInput, Message&gt; {}
-</code></pre>
-</doc-codeblock></div>
-<p>La définition d&#x27;un UseCase est une simple interface qui étend <code v-pre>dev.soffa.foundation.core.UseCase</code>.
-En ouvrant l&#x27;interface, on peut donc avoir une idée générale de que cette opération est censée faire, quel est l&#x27;input et quel est l&#x27;output.</p>
-<p>Il est donc recommandé de toujours choisir une terminologie fonctionnelle simple à comprendre : <a href="https://www.martinfowler.com/bliki/UbiquitousLanguage.html" target="_blank"><em>Ubiquitous Language</em></a>.</p>
-<doc-anchor-target id="package-apiresources">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-apiresources">#</doc-anchor-trigger>
-        <span>Package api.resources</span>
-    </h4>
-</doc-anchor-target>
-<p>Ce package contient les interfaces des ressources que le projet expose (en REST, GraphQL, etc).
-Une ressource est une interface qui expose plusieurs opérations. Foundation inclut plusieurs dépendances par défaut, dont OpenAPI pour la documentation des APIs.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">EchoResource.java</div>
-<pre class="language-java"><code v-pre class="language-java">@Tags(
-    @Tag(name = &quot;Echo&quot;, description = &quot;All things echo messaging&quot;)
-)
-@RestController // Cette interface sera implémentée automatiquement lorsque cette annotation est présente + Resource
-public interface EchoResource extends Resource {
-
-    /**
-     * Commentaire développeur pour la méthode echo
-     *
-     * @param input   Données utilisateur
-     * @param context Injectée automatiquement avec les informations de la requête en cours (n'apparaît pas dans la documentation OpenAPI)
-     */
-    @Operation(
-        method = &quot;POST&quot;,
-        summary = &quot;Echo the input message&quot;
-    )
-    @PostMapping(&quot;echo&quot;)
-    default Message echo(@Valid @RequestBody EchoInput input, Context context) {
-        return invoke(Echo.class, input, context);
-    }
-
-}
-</code></pre>
-</doc-codeblock></div>
-<p>La méthode <code v-pre>invoke</code> déclarée dans l&#x27;inteface <code v-pre>Resource</code> permet au développeur de faire le mapping entre l&#x27;opération et
-le bone usecase.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Même si vous constatez des annotations SpringBoot à ce niveau, il ne s&#x27;agit que d&#x27;annotations. Les fichier correspodants ont été copier depuis le projet officiel Spring
-et coller dans <code v-pre>foundation-api</code> pour ne pas avoir à inclure toute la dépendance Spring dans ce module API.
-L&#x27;interprétation de ces interfaces n&#x27;est faite que dans la partie <code v-pre>app-service</code>.</p>
-        </div>
-    </div>
-</div>
-<doc-anchor-target id="importance-du-module-api">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#importance-du-module-api">#</doc-anchor-trigger>
-        <span>Importance du module API</span>
-    </h4>
-</doc-anchor-target>
-<p>Le module API permet de décrire le fonctionnement de votre service mais aussi de servir d&#x27;interface pour les clients. En effet, le module <code v-pre>api</code> pouvant être publié séparement dans un serveur nexus,
-peut être rajouté comme dépendance dans un autre service dans lequel le code suivant peut etre utilisé :</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">/* Logique présent dans un service-a souhaitant consommer une ressource du service-b */
-EchoResource client = RestClient.newInstance(EchoResource.class, &quot;https://service-b&quot;);
-Message response = client.echo(new EchoInput(&quot;Hello&quot;), new Context());</code></pre>
-</doc-codeblock></div>
-<p>Il n&#x27;y a donc aucune génération de client à prévoir lorsque votre ressource doit être consommer depuis un code Java/Kotlin.</p>
-<doc-anchor-target id="module-core">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#module-core">#</doc-anchor-trigger>
-        <span>Module Core</span>
-    </h3>
-</doc-anchor-target>
-<p>Contient l&#x27;implémentation des <strong>usecases</strong> (qui contiennent les règles de gestion). Cette implémentation peut nécessister l&#x27;accès à des ressources externes au système. L&#x27;interface de cette ressource externe est alors créée dans ce module et l&#x27;implémentation déléguée à la couche service</p>
-<doc-anchor-target id="module-service">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#module-service">#</doc-anchor-trigger>
-        <span>Module Service</span>
-    </h3>
-</doc-anchor-target>
-<p>Le module <code v-pre>app-service</code> contient l&#x27;implémentation de vos différents usecases à travers des <code v-pre>handlers</code> et autres classes support.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">package foundation.app.core.handler;
-
-...
-import javax.inject.Named;
-
-@Named
-public class DoEcho implements Echo {
-
-    @Override
-    public Message handle(EchoInput input, @NonNull Context context) {
-        return new Message(input.getMessage());
-    }
-</code></pre>
-</doc-codeblock></div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Foundation est construit sur SpringBoot. Toutefois, grâce à la fonctionnalit&quot; <code v-pre>implementation</code> de gradle, le développeur n&#x27;a pas accès aux différentes classes Spring.
-Ceci est fait par design pour encourager l&#x27;utilisateur de classes simplement définies ainsi que de classe telel que <code v-pre>javax.inject.Named</code> au lieu de <code v-pre>@Component</code>, <code v-pre>@Service</code> (...) de Spring.</p>
-        </div>
-    </div>
-</div>
-<doc-anchor-target id="plus-dexemples">
-    <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#plus-dexemples">#</doc-anchor-trigger>
-        <span>Plus d&#x27;exemples</span>
-    </h2>
-</doc-anchor-target>
-<p>Le projet <code v-pre>foundation-java-starter</code> vous permet de disposer d&#x27;une structure basique pour démarrer rapidement.
-Nous vous invitons à consulter <a href="https://github.com/soffalabs/foundation4j-samples">foundation4j-samples</a> pour avoir plus d&#x27;exemples sur des cas d&#x27;usages plus avancés d&#x27;un simple <code v-pre>Echo</code>.</p>
+<hr />
+<hr />
 
                                 
                                 <!-- Required only on API pages -->
@@ -433,20 +211,20 @@ Nous vous invitons à consulter <a href="https://github.com/soffalabs/foundation
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/choices/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="/integration/object-storage/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Choix structurants</span>
+                                                <span class="block mt-1">Object storage</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/gradle/00_index/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/integration/tracing/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Introduction</span>
+                                                <span class="block mt-1">Tracing</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -490,6 +268,6 @@ Nous vous invitons à consulter <a href="https://github.com/soffalabs/foundation
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Bien démarrer", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Pubsub", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
