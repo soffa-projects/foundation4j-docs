@@ -25,4 +25,3 @@ Il est important pour nous d'exposer de façon explicite notre vision produit. N
 
 1. Le code source de tout le framework est et sera toujours gratuit, hébergé sur Github, dans le domaine public
 2. Toutes les librairies Java seront toujours publiées sur MavenCentral (https://search.maven.org/)
-3. Toute offre commerciale ne concernera que le support et expertise technique dont une entreprise pourrait avoir besoin pour aller encore plus vite ou étudier des cas spécifiques.
