@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: retypeapp/action-build@v2
-      - name: update page width
+      - name: Update container width
         run: |
-          ls -alr /tmp/*
-          sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" /tmp/*/resources/css/retype.css
+          ls -alr /tmp/tmp.*
+          sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" /tmp/tmp./resources/css/retype.css
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: docs
