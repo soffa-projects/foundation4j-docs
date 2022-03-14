@@ -12,11 +12,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: retypeapp/action-build@v2
+      - name: update page width
+        run: |
+          sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" docs/resources/css/retype.css
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: docs
           directory: docs
           update-branch: true
-      - name: update page width
-        run: |
-          sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" docs/resources/css/retype.css
+  
