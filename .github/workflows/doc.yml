@@ -15,7 +15,7 @@ jobs:
       - name: Update container width
         run: |
           ls -alr /tmp/tmp.*
-          sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" /tmp/tmp./resources/css/retype.css
+          sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" /tmp/tmp.*/resources/css/retype.css
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: docs
