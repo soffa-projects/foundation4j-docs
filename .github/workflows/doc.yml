@@ -14,6 +14,8 @@ jobs:
       - uses: retypeapp/action-build@v2
       - name: update page width
         run: |
+          pwd
+          ls -alr
           sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" docs/resources/css/retype.css
       - uses: retypeapp/action-github-pages@v2
         with:
