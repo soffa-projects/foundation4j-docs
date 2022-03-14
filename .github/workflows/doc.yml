@@ -17,6 +17,6 @@ jobs:
           branch: docs
           directory: docs
           update-branch: true
-      - name: Appspec
+      - name: update page width
         run: |
           sed -i -e "s|max-width: 1800px;|max-width: 1400px;|g" docs/resources/css/retype.css
