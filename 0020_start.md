@@ -192,17 +192,17 @@ buildscript {
 | `foundation.project.kotlin`           | root      | Applique le plugin `foundation.api.kotlin` au module `api` de votre projet;<br />Applique le plugin `foundation.service.kotlin` au module `service`;<br />Rajoute à votre module `service` la dépendance avec le service `api` |
 | `foundation.project`                  | root      | Applique le plugin `foundation.api` au module `api` de votre projet;<br />Applique le plugin `foundation.service` au module `service`;<br />Rajoute à votre module `service` la dépendance avec le service `api` |
 | `foundation.qa.checkstyle`            | module    | Applique le plugin `checkstyle` au module. Votre fichier `checkstyle.xml` doit être présent dans le dossier `config/qa/` |
-| `foundation.qa.coverage.l1`           | module    | Configure la couverture de test à un minimum de 10% |
-| `foundation.qa.coverage.l2`           | module    | Configure la couverture de test à un minimum de 20% |
-| `foundation.qa.coverage.l3`           | module    | Configure la couverture de test à un minimum de 30% |
-| `foundation.qa.coverage.l4`           | module    | Configure la couverture de test à un minimum de 40% |
-| `foundation.qa.coverage.l5`           | module    | Configure la couverture de test à un minimum de 50% |
-| `foundation.qa.coverage.l6`           | module    | Configure la couverture de test à un minimum de 60% |
-| `foundation.qa.coverage.l7`           | module    | Configure la couverture de test à un minimum de 70% |
-| `foundation.qa.coverage.l8`           | module    | Configure la couverture de test à un minimum de 80% |
-| `foundation.qa.coverage.l85`          | module    | Configure la couverture de test à un minimum de 85% |
-| `foundation.qa.coverage.l9`           | module    | Configure la couverture de test à un minimum de 90% |
-| `foundation.qa.coverage.l95`          | module    | Configure la couverture de test à un minimum de 95% |
+| `foundation.qa.coverage.l1`           | module    | Configure la couverture de test à un min de 10% |
+| `foundation.qa.coverage.l2`           | module    | Configure la couverture de test à un min de 20% |
+| `foundation.qa.coverage.l3`           | module    | Configure la couverture de test à un min de 30% |
+| `foundation.qa.coverage.l4`           | module    | Configure la couverture de test à un min de 40% |
+| `foundation.qa.coverage.l5`           | module    | Configure la couverture de test à un min de 50% |
+| `foundation.qa.coverage.l6`           | module    | Configure la couverture de test à un min de 60% |
+| `foundation.qa.coverage.l7`           | module    | Configure la couverture de test à un min de 70% |
+| `foundation.qa.coverage.l8`           | module    | Configure la couverture de test à un min de 80% |
+| `foundation.qa.coverage.l85`          | module    | Configure la couverture de test à un min de 85% |
+| `foundation.qa.coverage.l9`           | module    | Configure la couverture de test à un min de 90% |
+| `foundation.qa.coverage.l95`          | module    | Configure la couverture de test à un min de 95% |
 | `foundation.qa.coverage.lX`           | module    | Configure la couverture de test à 100% |
 | `foundation.qa.pmd`                   | module    | Active le plugin `pmd` sur le module |
 | `foundation.service.kotlin`           | module    | Appliquer les plugins `foundation.kotlin`, `foundation.springboot`<br />Rajouter les dépendances `dev.soffa.foundation:foundation-starter` et `dev.soffa.foundation:foundation-starter-test` |
