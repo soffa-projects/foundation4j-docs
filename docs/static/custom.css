@@ -1,0 +1,26 @@
+.container {
+    max-width: 1480px;
+}
+
+.docs-powered-by {
+    /* opacity: 0; */
+}
+
+.simplebar-content,
+.doc-alert p {
+    font-size: 0.9rem;
+}
+
+.docs-markdown h2 {
+    margin-top: 1.5em;
+    font-size: 1.7rem;
+    letter-spacing: normal;
+}
+
+.text-base {
+    font-size: 0.95rem;
+}
+
+table td * {
+    font-size: 0.9rem;
+}
