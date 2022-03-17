@@ -12,10 +12,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: retypeapp/action-build@v2
-      - name: Update container width
-        run: |
-          ls -alr /tmp/tmp.*
-          sed -i -e "s|1800px|1400px|g" /tmp/tmp.*/resources/css/retype.css
+      #- name: Update container width
+      #  run: |
+      #    ls -alr /tmp/tmp.*
+      #    sed -i -e "s|1800px|1400px|g" /tmp/tmp.*/resources/css/retype.css
       - uses: retypeapp/action-github-pages@v2
         with:
           branch: docs
