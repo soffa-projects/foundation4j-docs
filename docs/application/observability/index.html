@@ -12,29 +12,30 @@
     <meta name="generator" content="Retype 2.0">
 
     <!-- Primary Meta Tags -->
-    <title>Observability | Foundation</title>
-    <meta name="title" content="Observability | Foundation">
-    <meta name="description" content="#TODO" />
+    <title>Observabilit&#233; | Foundation</title>
+    <meta name="title" content="Observabilité | Foundation">
+    <meta name="description" content="Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://foundation4j.soffa.dev/application/observability/">
-    <meta property="og:title" content="Observability | Foundation">
-    <meta property="og:description" content="#TODO">
+    <meta property="og:title" content="Observabilité | Foundation">
+    <meta property="og:description" content="Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://foundation4j.soffa.dev/application/observability/">
-    <meta property="twitter:title" content="Observability | Foundation">
-    <meta property="twitter:description" content="#TODO">
+    <meta property="twitter:title" content="Observabilité | Foundation">
+    <meta property="twitter:description" content="Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/resources/css/retype.css?v=2.0.700879286712" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.0.700931139778" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.0.700879286712" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.0.700931139778" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.0" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.700879286712" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.0.700931139778" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.0.700931139778" defer></script>
 
     
     <link rel="stylesheet" href="/static/custom.css" />
@@ -55,7 +56,7 @@
                     <div class="flex items-center px-2 md:px-6">
                         <a id="docs-site-logo" href="/" class="flex items-center leading-snug text-2xl">
                             <span class="dark:text-white font-semibold line-clamp-1 md:line-clamp-2">Foundation</span>
-                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">v0.9.3</span>
+                        </a><span class="hidden px-2 py-1 ml-4 text-sm font-semibold leading-none text-root-logo-label-text bg-root-logo-label-bg rounded-sm md:inline-block">v0.9.4</span>
                     </div>
         
                     <span class="hidden h-8 border-r md:inline-block dark:border-dark-650"></span>
@@ -201,13 +202,115 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="observability" class="break-words">
+<doc-anchor-target id="observabilité" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#observability">#</doc-anchor-trigger>
-        <span>Observability</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observabilité">#</doc-anchor-trigger>
+        <span>Observabilité</span>
     </h1>
 </doc-anchor-target>
-<p>#TODO</p>
+<p>Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie <strong>Observabilité</strong> on
+retrouve les éléments suivants :</p>
+<doc-anchor-target id="health-check">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#health-check">#</doc-anchor-trigger>
+        <span>Health check</span>
+    </h2>
+</doc-anchor-target>
+<p>Pour avoir un état du service, l&#x27;uri <code v-pre>/health</code> est disponible en alias de <code v-pre>/actuator/health</code> (configuration par défaut SpringBoot)</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">/health</div>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;status&quot;: &quot;UP&quot;,
+  &quot;groups&quot;: [
+    &quot;liveness&quot;,
+    &quot;readiness&quot;
+  ]
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="métriques-applicatives">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#métriques-applicatives">#</doc-anchor-trigger>
+        <span>Métriques applicatives</span>
+    </h2>
+</doc-anchor-target>
+<p>Votre application embarque par défault une exposition pour Prometheus disponible sur <code v-pre>/metrics</code> en alias de <code v-pre>/actuator/prometheus</code> (configuration par défaut SpringBoot)</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">/metrics</div>
+<pre class="language-none"><code v-pre class="language-none"># HELP executor_queued_tasks The approximate number of tasks that are queued for execution
+# TYPE executor_queued_tasks gauge
+executor_queued_tasks{name=&quot;applicationTaskExecutor&quot;,} 0.0
+executor_queued_tasks{name=&quot;taskScheduler&quot;,} 0.0
+# HELP executor_pool_core_threads The core number of threads for the pool
+# TYPE executor_pool_core_threads gauge
+executor_pool_core_threads{name=&quot;applicationTaskExecutor&quot;,} 8.0
+executor_pool_core_threads{name=&quot;taskScheduler&quot;,} 1.0
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="logs">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#logs">#</doc-anchor-trigger>
+        <span>Logs</span>
+    </h2>
+</doc-anchor-target>
+<p>Foundation embarque <code v-pre>slf4j</code> pour la gestion des logs. Toutefois, au lieu d&#x27;utiliser directement le classe <code v-pre>org.slf4j.LoggerFactory</code> pour créer votre logger,
+remplacer par <code v-pre>dev.soffa.foundation.commons.Logger</code> vous permet de bénéficier de quelques avantages dont l&#x27;injection du contexte de la requête dans vos logs.
+Chaque log produit contiendra donc:</p>
+<ul>
+<li>Le nom de l&#x27;application appelante</li>
+<li>Le tenant actif (si votre service est multitenant)</li>
+<li>Les informations de trace <code v-pre>traceId</code> et <code v-pre>spanId</code></li>
+<li>L&#x27;identifiant de l&#x27;utilisateur connecté (si applicable)</li>
+</ul>
+<doc-anchor-target id="exceptions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#exceptions">#</doc-anchor-trigger>
+        <span>Exceptions</span>
+    </h2>
+</doc-anchor-target>
+<p>Les stacktraces en Java sont très verbeux et il est souvent difficile d&#x27;identifier rapidement la bonne information.
+Foundation intègre la librair <a href="https://github.com/michaelgantman/Mgnt">MgntUtils</a> pour supprimer des stacktraces les lignes qui ne sont pas pertinents.</p>
+<p>Au démarrage de votre application, le package principal est détecté et utilisé pour filter les traces d&#x27;erreurs.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">
+{
+    &quot;timestamp&quot;: 1647613864069,
+    &quot;source&quot;: &quot;foundation-starter&quot;,
+    &quot;kind&quot;: &quot;TechnicalException&quot;,
+    &quot;status&quot;: 500,
+    &quot;message&quot;: &quot;Controlled exception&quot;,
+    &quot;prod&quot;: false,
+    &quot;traceId&quot;: &quot;4bbf888a-aecd-40b6-9941-3547b40eaedb&quot;,
+    &quot;spanId&quot;: &quot;d81bc41a-52e0-4158-b4f2-7c632649fdeb&quot;,
+    &quot;trace&quot;: [
+        &quot;&quot;,
+        &quot;dev.soffa.foundation.error.TechnicalException: Controlled exception&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho.handle(DoEcho.java:17)&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho.handle(DoEcho.java:12)&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho$$FastClassBySpringCGLIB$$e59a833b.invoke(&lt;generated&gt;)&quot;,
+        &quot;\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)&quot;,
+        &quot;\t...&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho$$EnhancerBySpringCGLIB$$5268e711.handle(&lt;generated&gt;)&quot;,
+        &quot;\tat dev.soffa.foundation.spring.service.OperationDispatcher.dispatch(OperationDispatcher.java:19)&quot;,
+        &quot;\t...&quot;,
+        &quot;\tat foundation.app.api.resource.EchoResource.echo(EchoResource.java:36)&quot;,
+        &quot;\tat java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:509)&quot;,
+        &quot;\t...&quot;
+    ]
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="traces-distribuées-distributed-tracing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#traces-distribuées-distributed-tracing">#</doc-anchor-trigger>
+        <span>Traces distribuées (Distributed tracing)</span>
+    </h2>
+</doc-anchor-target>
+<doc-anchor-target id="audit-logging">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#audit-logging">#</doc-anchor-trigger>
+        <span>Audit logging</span>
+    </h2>
+</doc-anchor-target>
 
                                 
                                 <!-- Required only on API pages -->
@@ -274,6 +377,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Observability", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Observabilité", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

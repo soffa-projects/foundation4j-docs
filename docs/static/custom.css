@@ -30,8 +30,8 @@ table td * {
     font-size: 0.8rem;
 }
 
-.codeblock .simplebar-content {
-    font-size: 0.85rem !important;
+.codeblock .simplebar-content * {
+    font-size: 12px !important;
 }
 
 .browser {
