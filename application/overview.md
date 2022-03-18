@@ -1,5 +1,5 @@
 ---
-label: Introduction
+label: Structure applicative
 order: 100
 ---
 
