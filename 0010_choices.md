@@ -2,6 +2,7 @@
 label: Choix structurants
 order: 100
 route: /choices
+icon: thumbsup
 ---
 
 Pour construire Foundation, il fallait faire des choix structurants pour que chaque entreprise puisse décider très rapidement

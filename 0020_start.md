@@ -2,6 +2,7 @@
 label: Bien démarrer
 order: 30
 route: /start
+icon: rocket
 ---
 
 !!!
