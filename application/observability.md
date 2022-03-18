@@ -48,6 +48,19 @@ Chaque log produit contiendra donc:
 - Les informations de trace `traceId` et `spanId`
 - L'identifiant de l'utilisateur connecté (si applicable)
 
+```java
+private static final Logger LOG = Logger.get(Application.class)
+
+LOG.trace();
+LOG.info();
+LOG.debug();
+LOG.warn();
+LOG.error();
+```
+
+Lorsque votre service démarre avec l'un des profils `production`, `prd` ou `prod`.
+
+
 
 ## Exceptions
 
@@ -55,6 +68,10 @@ Les stacktraces en Java sont très verbeux et il est souvent difficile d'identif
 Foundation intègre la librair [MgntUtils](https://github.com/michaelgantman/Mgnt) pour supprimer des stacktraces les lignes qui ne sont pas pertinents.
 
 Au démarrage de votre application, le package principal est détecté et utilisé pour filter les traces d'erreurs.
+
+Lorsqu'une erreur survient lors d'un appel HTTP, le résultat est présenté en format JSON comme suit:
+
+> Le champs `trace` est absent lorsque votre application démarre avec le profil `production`, `prd` ou `prod`.
 
 ```json
 
@@ -85,8 +102,8 @@ Au démarrage de votre application, le package principal est détecté et utilis
 }
 ```
 
-
 ## Traces distribuées (Distributed tracing)
 
+Les traces distribuées sont présentées dans la section [Integration/Tracing](../integration/tracing.md)
 
-## Audit logging
+## Pistes d'audit
