@@ -14,24 +14,30 @@
     <!-- Primary Meta Tags -->
     <title>Persistance avanc&#233;e | Foundation</title>
     <meta name="title" content="Persistance avancée | Foundation">
+    <meta name="description" content="L'api de persistence Foundation a été avant tout penser pour simplifier l'accès à plusieurs bases de données." />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://foundation4j.soffa.dev/data/multitenancy/">
     <meta property="og:title" content="Persistance avancée | Foundation">
+    <meta property="og:description" content="L'api de persistence Foundation a été avant tout penser pour simplifier l'accès à plusieurs bases de données.">
+    <meta property="og:image" content="https://foundation4j.soffa.dev/static/img/multitenancy.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://foundation4j.soffa.dev/data/multitenancy/">
     <meta property="twitter:title" content="Persistance avancée | Foundation">
+    <meta property="twitter:description" content="L'api de persistence Foundation a été avant tout penser pour simplifier l'accès à plusieurs bases de données.">
+    <meta property="twitter:image" content="https://foundation4j.soffa.dev/static/img/multitenancy.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="/resources/css/retype.css?v=2.2.703637886612" rel="stylesheet" data-turbo-track="reload" />
+    <link href="/resources/css/retype.css?v=2.2.703640473573" rel="stylesheet" data-turbo-track="reload" />
 
-    <script type="text/javascript" src="/resources/js/config.js?v=2.2.703637886612" defer data-turbo-track="reload"></script>
+    <script type="text/javascript" src="/resources/js/config.js?v=2.2.703640473573" defer data-turbo-track="reload"></script>
     <script type="text/javascript" src="/resources/js/retype.js?v=2.2" defer data-turbo-track="reload"></script>
-    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.703637886612" defer></script>
+    <script id="lunr-js" type="text/javascript" src="/resources/js/lunr.js?v=2.2.703640473573" defer></script>
+    <script id="prism-js" type="text/javascript" src="/resources/js/prism.js?v=2.2.703640473573" defer></script>
 
     
     <link rel="stylesheet" href="/static/custom.css" />
@@ -204,12 +210,119 @@
         <span>Persistance avancée</span>
     </h1>
 </doc-anchor-target>
+<p><figure class="content-center">
+    <img src="../../static/img/multitenancy.png" alt="" />
+    <figcaption class="caption"></figcaption>
+</figure>
+</p>
 <doc-anchor-target id="multitenancy">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#multitenancy">#</doc-anchor-trigger>
         <span>Multitenancy</span>
     </h2>
 </doc-anchor-target>
+<p>L&#x27;api de persistence Foundation a été avant tout penser pour simplifier l&#x27;accès à plusieurs bases de données.</p>
+<doc-anchor-target id="liste-fixe-de-tenants">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#liste-fixe-de-tenants">#</doc-anchor-trigger>
+        <span>Liste fixe de tenants</span>
+    </h3>
+</doc-anchor-target>
+<p>Dans certains usecases, votre service se connecte à une liste prédéfinie de bases de données.
+Le descripteur yaml vous permet de définir cette liste de façon simple et intuitive.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">application-default.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
+  default:
+    url: pg://postgres:postgres@localhost/general
+    migration: general
+  customer1:
+    url: pg://postgres:postgres@localhost/customer-1
+    migration: customers
+  customer2:
+    url: pg://postgres:postgres@localhost/customer-2
+    migration: customers  
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="liste-dynamique-de-tenants">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#liste-dynamique-de-tenants">#</doc-anchor-trigger>
+        <span>Liste dynamique de tenants</span>
+    </h3>
+</doc-anchor-target>
+<p>En développant une solution de type SaaS, il est plus fréquent de se retrouver avec une liste de tenants dynamiques.
+Le fichier de configuration doit donc être adapté comme suit :</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">application-default.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
+  default:
+    url: pg://postgres:postgres@localhost/general
+    migration: general
+  __TENANT__:
+    url: pg://postgres:postgres@localhost/customers?schema=__TENANT__
+    migration: customers</code></pre>
+</doc-codeblock></div>
+<p>L&#x27;exemple ci-dessus utilise les schémas postgresql pour séparer les données de chaque client. Vous pouvez tout aussi bien
+utiliser une base de données pour chaque client comme suit:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">application-default.yml</div>
+<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
+  default: 
+    url: pg://postgres:postgres@localhost/general
+    migration: general
+  __TENANT__:
+    url: pg://postgres:postgres@localhost/__TENANT__
+    migration: customers</code></pre>
+</doc-codeblock></div>
+<p>Le mot clé <code v-pre>__TENANT__</code> sera remplacé par le <strong>tenant actif</strong>.</p>
+<p><strong>Retourer la liste dynamique de tenants</strong></p>
+<p>L&#x27;interfae <code v-pre>TenantsLoader</code> doit ensuite être implémentée pour créer automatiquement les datasources correspondantes.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-java"><code v-pre class="language-java">@Named
+public class MyTenantLoader implements TenantsLoader {
+
+    public Set&lt;String&gt; getTenantList() {
+        /* Récupérer et retouner la liste de tenants dynamique */
+    }
+
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="activation-des-tenants">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#activation-des-tenants">#</doc-anchor-trigger>
+        <span>Activation des tenants</span>
+    </h3>
+</doc-anchor-target>
+<p>Une fois la configuration finalisée, votre service a besoin de basculer d&#x27;un tenant à l&#x27;autre.</p>
+<ul>
+<li><code v-pre>dev.soffa.foundation.multitenancy.TenantHolder.set()</code></li>
+<li><code v-pre>dev.soffa.foundation.multitenancy.TenantHolder.use()</code></li>
+<li><code v-pre>dev.soffa.foundation.multitenancy.TenantHolder.useDefault()</code></li>
+</ul>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-java"><code v-pre class="language-java">@Inject
+private  UserRepository users;
+
+// Retourne la liste des utilisateurs pour la datasource/tenant 'default)
+users.count(); 
+
+TenantHolder.set(&quot;customer1&quot;);
+// Tous les requêtes exécutée dans le même Thread après cette ligne
+// on redirigées vers le tenant 'customer1'
+// Retourne la liste des utilisateurs pour la datasource/tenant 'customer1'
+users.count(); 
+
+TenantHolder.set(&quot;customer2&quot;);
+// Retourne la liste des utilisateurs pour la datasource/tenant 'customer2'
+users.count(); 
+TenantHolder.use(&quot;customer1&quot;, () -&gt; {
+    // Exécuter temporairement un traiement dans les données du custome1
+});
+TenantHolder.useDefault(() -&gt; {
+    // Exécuter temporairement un traiement dans les données de la datasource par défaut
+});
+users.count();  // Données du customer2</code></pre>
+</doc-codeblock></div>
 
                                 
                                 <!-- Required only on API pages -->
@@ -232,7 +345,7 @@
                                         <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="/integration/introduction/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Introduction</span>
+                                                <span class="block mt-1">Intégration</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -276,6 +389,6 @@
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Persistance avancée", icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Persistance avancée", icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>
