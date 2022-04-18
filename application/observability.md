@@ -107,3 +107,5 @@ Lorsqu'une erreur survient lors d'un appel HTTP, le résultat est présenté en 
 Les traces distribuées sont présentées dans la section [Integration/Tracing](../integration/tracing.md)
 
 ## Pistes d'audit
+
+TODO

@@ -132,10 +132,6 @@ Message response = client.echo(new EchoInput("Hello"), new Context());
 Il n'y a donc aucune génération de client à prévoir lorsque votre ressource doit être consommer depuis un code Java/Kotlin.
 
 
-### Module Core
-
-Contient l'implémentation des **usecases** (qui contiennent les règles de gestion). Cette implémentation peut nécessister l'accès à des ressources externes au système. L'interface de cette ressource externe est alors créée dans ce module et l'implémentation déléguée à la couche service
-
 ### Module Service
 
 Le module `app-service` contient l'implémentation de vos différents usecases à travers des `handlers` et autres classes support.
@@ -172,7 +168,7 @@ Ce plugin permet de simplifier certaines configuration projet.
 ```kotlin
 buildscript {
     dependencies {
-        classpath("dev.soffa.foundation:foundation-gradle-plugin:1.0.10")
+        classpath("dev.soffa.foundation:foundation-gradle-plugin:1.0.11")
     }
 }
 ```
@@ -216,12 +212,12 @@ buildscript {
 
 ```yaml gradle.properties
 
-group=foundation.app # À adapter à votre projet
-version=1.0.0 # À adapter à votre projet
+group = foundation.app # À adapter à votre projet
+version = 1.0.0 # À adapter à votre projet
 
-foundation.version=0.9.3 # Version de Foundation à utiliser
-#foundation.modules=data,pubsub # Modules foundation que vous souhaitez utiliser dans votre projet
-foundation.qa.coverage=l3 # Niveau de couverture des tests
+foundation.version = 0.9.5 # Version de Foundation à utiliser
+#foundation.modules = data,pubsub # Modules foundation que vous souhaitez utiliser dans votre projet
+foundation.qa.coverage = l3 # Niveau de couverture des tests
 ```
 
 Le contenu par défaut de ce fichier de configuration devrait vous permettre de créer un service si vous n'avez pas besoin d'accéder à une base de données, un message broker, etc.
