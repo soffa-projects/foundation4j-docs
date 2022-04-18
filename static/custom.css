@@ -15,7 +15,11 @@
 }
 
 .docs-markdown h3 {
-    font-size: 1.2rem;
+    font-size: 1.25rem;
+}
+
+.docs-markdown h4 {
+    font-size: 1.1rem;
 }
 
 .text-base {
