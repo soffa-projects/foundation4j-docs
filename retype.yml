@@ -17,6 +17,10 @@ links:
   link: https://github.com/soffalabs/foundation4j/discussions
   icon: comment-discussion
   target: _blank
+- text: Bantu
+  link: https://developers.bantu.dev/
+  icon: link-external
+  target: _blank
 - text: Github
   link: https://github.com/soffalabs/foundation4j
   icon: mark-github
