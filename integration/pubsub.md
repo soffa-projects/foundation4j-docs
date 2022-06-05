@@ -28,7 +28,7 @@ Pour intégrer RabbitMQ à votre projet, la configuration suivante est requise :
 
 ```yaml
 app.pubsub.enabled: true
-app.pubsub.clients.default.addresses: nats://localhost:14222
+app.pubsub.clients.default.addresses: amqp://guest:guest@localhost:5672
 ```
 
 ## Client PubSubMessenger
