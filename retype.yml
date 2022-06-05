@@ -6,7 +6,7 @@ meta:
 
 branding:
   title: Foundation
-  label: v0.9.5
+  label: v0.11.0
   #logo: static/img/logo5.svg
   #logoDark: static/img/logo5.svg
 links:
@@ -33,4 +33,4 @@ integrations:
   googleAnalytics:
     id: G-LCZPLJEKJW
 
-poweredByRetype: true
+poweredByRetype: false
