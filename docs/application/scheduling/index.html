@@ -6,39 +6,41 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.3.0.709077869818">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.3.0.709083206849">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.3.0">
 
     <!-- Primary Meta Tags -->
-    <title>Persistence | Foundation</title>
-    <meta name="title" content="Persistence | Foundation">
-    <meta name="description" content="Pour rappel, Foundation est construit par dessus SpringBoot. Tout ce que vous avez l'habitude de faire avec Spring Boot en terme de persistence de..." />
+    <title>T&#226;ches planifi&#233;es | Foundation</title>
+    <meta name="title" content="Tâches planifiées | Foundation">
+    <meta name="description" content="JobRunr" />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://foundation4j.soffa.dev/data/persistence/" />
+    <link rel="canonical" href="https://foundation4j.soffa.dev/application/scheduling/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://foundation4j.soffa.dev/data/persistence/">
-    <meta property="og:title" content="Persistence | Foundation">
-    <meta property="og:description" content="Pour rappel, Foundation est construit par dessus SpringBoot. Tout ce que vous avez l'habitude de faire avec Spring Boot en terme de persistence de...">
+    <meta property="og:url" content="https://foundation4j.soffa.dev/application/scheduling/">
+    <meta property="og:title" content="Tâches planifiées | Foundation">
+    <meta property="og:description" content="JobRunr">
+    <meta property="og:image" content="https://foundation4j.soffa.dev/static/img/jobrunr.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://foundation4j.soffa.dev/data/persistence/">
-    <meta property="twitter:title" content="Persistence | Foundation">
-    <meta property="twitter:description" content="Pour rappel, Foundation est construit par dessus SpringBoot. Tout ce que vous avez l'habitude de faire avec Spring Boot en terme de persistence de...">
+    <meta property="twitter:url" content="https://foundation4j.soffa.dev/application/scheduling/">
+    <meta property="twitter:title" content="Tâches planifiées | Foundation">
+    <meta property="twitter:description" content="JobRunr">
+    <meta property="twitter:image" content="https://foundation4j.soffa.dev/static/img/jobrunr.png">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.3.0.709077869818" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.3.0.709083206849" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.3.0.709077869818" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.3.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.3.0.709077869818" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.3.0.709077869818" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.3.0.709083206849" defer></script>
 
     
     <link rel="stylesheet" href="/static/custom.css" />
@@ -248,197 +250,105 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="persistence-de-données" class="break-words">
+<doc-anchor-target id="tâches-planifiées" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#persistence-de-données">#</doc-anchor-trigger>
-        <span>Persistence de données</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#tâches-planifiées">#</doc-anchor-trigger>
+        <span>Tâches planifiées</span>
     </h1>
 </doc-anchor-target>
-<p>Pour rappel, Foundation est construit par dessus SpringBoot.
-Tout ce que vous avez l&#x27;habitude de faire avec Spring Boot en terme de persistence de données reste valide.</p>
-<p>Toutefois, la philosophie derrière Foundation est d&#x27;offrir une abstraction aux développeurs.</p>
-<doc-anchor-target id="limitations-spring-boot-repository">
+<p><figure class="content-center">
+    <img src="../../static/img/jobrunr.png" alt="JobRunr" />
+    <figcaption class="caption">JobRunr</figcaption>
+</figure>
+</p>
+<p>Foundation intègre la librairie <a href="https://www.jobrunr.io/">JobRunr</a> dont la spécialité est la gestion distribuée de tâches.
+JobRunr requiert une base de données pour fonctionner. Si votre projet utilise une base de données, l&#x27;intégration de cette
+fonctionnalité vous simplifiera de façon importante la gestion des opérations récurrentes et opérations en arrière plan.</p>
+<doc-anchor-target id="principes-de-base">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#limitations-spring-boot-repository">#</doc-anchor-trigger>
-        <span>Limitations Spring Boot Repository</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#principes-de-base">#</doc-anchor-trigger>
+        <span>Principes de base</span>
     </h2>
 </doc-anchor-target>
-<p>Se connecter à une base de données et faire de la gestion de données est relativement quelque chose de simple
-à mettre en place avec SpringBoot.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-properties"><code v-pre class="language-properties"># PostgreSQL
-spring.datasource.url = jdbc:postgresql://localhost:5432/datasource
-spring.datasource.username = postgres
-spring.datasource.password = postgres
-spring.datasource.driver-class-name = com.postgresql.jdbc.Driver</code></pre>
-</doc-codeblock></div>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">@Repository
-public interface ProductRepository extends JpaRepository&lt;Product, Long&gt; {
-    Product findByName(String productName);
-}</code></pre>
-</doc-codeblock></div>
-<p>Mais voilà, lorsque le besoin se présente de :</p>
-<ul>
-<li>Gérer plusieurs bases de données</li>
-<li>Créer une application multi-tenante</li>
-<li>Faire de la gestion avancée de sharding</li>
-<li>Séparer les opérations read/write</li>
-</ul>
-<p>la configuration SpringBoot + Hibernate n&#x27;est pas forcément la façon la plus flexible de faire les choses.</p>
-<doc-anchor-target id="implémentation-foundation">
+<p>L&#x27;interface <code v-pre>dev.soffa.foundation.scheduling.Scheduler</code> est le point d&#x27;entrée de toute les opérations planifiées.
+L&#x27;intégration avec <code v-pre>JobRunr</code> n&#x27;est qu&#x27;une implémentation de cette interface. D&#x27;autres implémentations sont disponibles, notamment
+celle pour vos tests d&#x27;intégration.</p>
+<doc-anchor-target id="opérations-en-arrière-plan">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#implémentation-foundation">#</doc-anchor-trigger>
-        <span>Implémentation Foundation</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#opérations-en-arrière-plan">#</doc-anchor-trigger>
+        <span>Opérations en arrière-plan</span>
     </h2>
 </doc-anchor-target>
-<p>Foundation utilise <a href="jdbi.org">https://jdbi.org</a> pour proposer aux développeurs un mécanisme léger mais riche et flexible
-pour gérer l&#x27;accès aux données.</p>
+<p>La méthode <code v-pre>scheduler.enqueue</code> vous permet de créer une tâche planifiée à exécution unique.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-kotlin"><code v-pre class="language-kotlin"># Dépendance
-implementation(&quot;dev.soffa.foundation:foundation-starter-data&quot;)</code></pre>
+<pre class="language-java"><code v-pre class="language-java">scheduler.enqueue(
+    // identifiant unique de la tâche planifiée pour éviter les doublons
+    &quot;accounts.admin.process&quot;,  
+    // Operation à exécuter
+    HandleNewAccount.class,
+    // Paramtère attendu par l'opération 
+    accountId, 
+    // Contexte d'exécution
+    context
+)</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="configuration">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#configuration">#</doc-anchor-trigger>
-        <span>Configuration</span>
-    </h3>
+<doc-anchor-target id="opérations-récurrentes-manuel">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#opérations-récurrentes-manuel">#</doc-anchor-trigger>
+        <span>Opérations récurrentes (manuel)</span>
+    </h2>
 </doc-anchor-target>
-<p>La couche persistence propose une structure qui vous permet (par défaut) de déclarer plusieurs chaînes de connexion.</p>
+<p>La méthode <code v-pre>scheduler.scheduleRecurrently</code> vous permet de créer une tâche récurrente</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">application-default.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
-  default:
-    url: h2://mem/default # pg://postgres:postgres@localhost/foundation
-    migration: application # Chaque datasource peut pointer sur une fichier de migration spécifiques
-</code></pre>
+<pre class="language-java"><code v-pre class="language-java">scheduler.scheduleRecurrently(
+    // identifiant unique de la tâche planifiée pour éviter les doublons
+    &quot;cronId&quot;,  
+    // Expression CRON pouré définir la récurrence (ex: chaque 10 secondes)
+    &quot;*/10 * * * * *&quot;, 
+    // ServiceWorker à invoquer
+    worker,
+)</code></pre>
 </doc-codeblock></div>
-<p>Parce qu&#x27;il est important de toujours gérer vos données via des fichiers de migration, Foundation supporte les migrations
-au format <a href="https://www.liquibase.org/">Liquibase</a>.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-            <h5>important</h5>
-<p>Foundation n&#x27;utilise pas Hibernate. Il n&#x27;est donc pas possible d&#x27;utiliser la fonctionnalité (non recommandée pour de la production)
-de génération automatique du schéma de votre base de données.</p>
-        </div>
-    </div>
-</div>
-<doc-anchor-target id="foundation-repository">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#foundation-repository">#</doc-anchor-trigger>
-        <span>Foundation Repository</span>
-    </h3>
-</doc-anchor-target>
-<p>Foundation offre une interface <code v-pre>EntityRepository&lt;T&gt;</code> pour vous permettre de faire les différentes opérations CRUD.</p>
+<p>L&#x27;objet <code v-pre>worker</code> est une instance de l&#x27;interface <code v-pre>dev.soffa.foundation.scheduling.ServiceWorker</code></p>
+<p>Exemple:</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">@Repository(collection = &quot;users&quot;)
-public interface UserRepository extends EntityRepository&lt;User&gt; {
-}</code></pre>
-</doc-codeblock></div>
-<p>Cette interface expose les méthodes suivantes :</p>
-<doc-anchor-target id="count">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#count">#</doc-anchor-trigger>
-        <span><code v-pre>count()</code></span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">@Inject
-private  UserRepository users;
+<pre class="language-java"><code v-pre class="language-java">public class SimpleJobHandler implements ServiceWorker {
 
-users.count();
-users.count(ImmutableMap.of(&quot;role&quot;, &quot;admin&quot;));
-users.count(Criteria.of(&quot;role = :role&quot;, ImmutableMap.of(&quot;role&quot;, &quot;admin&quot;)));</code></pre>
+    private static final AtomicInteger COUNTER = new AtomicInteger(0);
+
+    public static int getCount() {
+        return COUNTER.get();
+    }
+
+    @Override
+    public void tick() {
+        COUNTER.incrementAndGet();
+    }
+}</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="exists">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#exists">#</doc-anchor-trigger>
-        <span><code v-pre>exists()</code></span>
-    </h4>
+<doc-anchor-target id="opérations-récurrentes-annotation">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#opérations-récurrentes-annotation">#</doc-anchor-trigger>
+        <span>Opérations récurrentes (annotation)</span>
+    </h2>
 </doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">boolean hasAdmin = users.exists(ImmutableMap.of(&quot;username&quot;, &quot;admin@bantu.dev&quot;));
-hasAdmin = users.exists(Criteria.of(&quot;username = :arg&quot;, ImmutableMap.of(&quot;arg&quot;, &quot;admin@bantu.dev&quot;)));</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="find">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#find">#</doc-anchor-trigger>
-        <span><code v-pre>find()</code></span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">List&lt;User&gt; userList = users.findAll();
-userList = users.find(ImmutableMap.of(&quot;role&quot;, &quot;admin&quot;));
-userList = users.find(Criteria.of(&quot;role = :role&quot;, ImmutableMap.of(&quot;role&quot;, &quot;admin&quot;)));
-</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="findbyid">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#findbyid">#</doc-anchor-trigger>
-        <span><code v-pre>findById()</code></span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">Optional&lt;User&gt; user = users.findById(&quot;arn-xo-1217218728178&quot;);
-</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="get">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#get">#</doc-anchor-trigger>
-        <span><code v-pre>get()</code></span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">Optional&lt;User&gt; user = users.get(ImmutableMap.of(&quot;username&quot;, &quot;admin@bantu.dev&quot;));
-user = users.get(Criteria.of(&quot;username = :arg&quot;, ImmutableMap.of(&quot;arg&quot;, &quot;admin@bantu.dev&quot;)));
-</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="insert">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#insert">#</doc-anchor-trigger>
-        <span><code v-pre>insert()</code></span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">User user = users.insert(new User(...));</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="update">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#update">#</doc-anchor-trigger>
-        <span><code v-pre>update()</code></span>
-    </h4>
-</doc-anchor-target>
+<p>Invoquer <code v-pre>scheduler.scheduleRecurrently()</code> n&#x27;est pas toujours nécessaire.  Au démarrage, Foundation effectue une rechercher sur les
+composants injectables ayant l&#x27;annotation <code v-pre>@dev.soffa.foundation.annotation.Cron</code> pour les inscrire dans la planification récurrente.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-java"><code v-pre class="language-java">
-User user = /* ... */;
-users.update(user);
+import dev.soffa.foundation.annotation.Cron;
+import dev.soffa.foundation.scheduling.ServiceWorker;
+import javax.inject.Named;
+
+@Named
+@Cron(Cron.EVERY_5_SECONDS)
+public class SimpleJobHandler implements ServiceWorker {
+
+    @Override
+    public void tick() {
+    }
+}
 </code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="delete">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#delete">#</doc-anchor-trigger>
-        <span><code v-pre>delete()</code></span>
-    </h4>
-</doc-anchor-target>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">long deleted = users.delete(ImmutableMap.of(&quot;status&quot;, &quot;inactive&quot;));
-deleted = users.delete(
-    Criteria.of(
-        &quot;status = :arg0 OR status = :arg1&quot;, 
-        ImmutableMap.of(&quot;arg0&quot;, &quot;INACTIVE&quot;, &quot;arg1&quot;, &quot;DELETED&quot;)
-    )
-);</code></pre>
 </doc-codeblock></div>
 
                                 
@@ -449,20 +359,20 @@ deleted = users.delete(
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../application/observability/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../application/persistence/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Observabilité</span>
+                                                <span class="block mt-1">Persistence</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../data/multitenancy/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../integration/introduction/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Persistance avancée</span>
+                                                <span class="block mt-1">Intégration</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -506,6 +416,6 @@ deleted = users.delete(
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Persistence", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Tâches planifiées", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

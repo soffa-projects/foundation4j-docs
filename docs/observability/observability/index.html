@@ -6,41 +6,39 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.3.0.709077869818">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.3.0.709083206849">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.3.0">
 
     <!-- Primary Meta Tags -->
-    <title>Persistance avanc&#233;e | Foundation</title>
-    <meta name="title" content="Persistance avancée | Foundation">
-    <meta name="description" content="L'api de persistence Foundation a été avant tout penser pour simplifier l'accès à plusieurs bases de données." />
+    <title>Observabilit&#233; | Foundation</title>
+    <meta name="title" content="Observabilité | Foundation">
+    <meta name="description" content="Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie" />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://foundation4j.soffa.dev/data/multitenancy/" />
+    <link rel="canonical" href="https://foundation4j.soffa.dev/observability/observability/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://foundation4j.soffa.dev/data/multitenancy/">
-    <meta property="og:title" content="Persistance avancée | Foundation">
-    <meta property="og:description" content="L'api de persistence Foundation a été avant tout penser pour simplifier l'accès à plusieurs bases de données.">
-    <meta property="og:image" content="https://foundation4j.soffa.dev/static/img/multitenancy.png">
+    <meta property="og:url" content="https://foundation4j.soffa.dev/observability/observability/">
+    <meta property="og:title" content="Observabilité | Foundation">
+    <meta property="og:description" content="Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://foundation4j.soffa.dev/data/multitenancy/">
-    <meta property="twitter:title" content="Persistance avancée | Foundation">
-    <meta property="twitter:description" content="L'api de persistence Foundation a été avant tout penser pour simplifier l'accès à plusieurs bases de données.">
-    <meta property="twitter:image" content="https://foundation4j.soffa.dev/static/img/multitenancy.png">
+    <meta property="twitter:url" content="https://foundation4j.soffa.dev/observability/observability/">
+    <meta property="twitter:title" content="Observabilité | Foundation">
+    <meta property="twitter:description" content="Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../../resources/css/retype.css?v=2.3.0.709077869818" rel="stylesheet" />
+    <link href="../../resources/css/retype.css?v=2.3.0.709083206849" rel="stylesheet" />
 
-    <script type="text/javascript" src="../../resources/js/config.js?v=2.3.0.709077869818" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../../resources/js/config.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.3.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.3.0.709077869818" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.3.0.709077869818" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.3.0.709083206849" defer></script>
 
     
     <link rel="stylesheet" href="/static/custom.css" />
@@ -250,125 +248,131 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="persistance-avancée" class="break-words">
+<doc-anchor-target id="observabilité" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#persistance-avancée">#</doc-anchor-trigger>
-        <span>Persistance avancée</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#observabilité">#</doc-anchor-trigger>
+        <span>Observabilité</span>
     </h1>
 </doc-anchor-target>
-<p><figure class="content-center">
-    <img src="../../static/img/multitenancy.png" alt="" />
-    <figcaption class="caption"></figcaption>
-</figure>
-</p>
-<doc-anchor-target id="multitenancy">
+<p>Chaque application Foundation embarque un certain nombre de capacités activées par défaut. Dans la catégorie <strong>Observabilité</strong> on
+retrouve les éléments suivants :</p>
+<doc-anchor-target id="health-check">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#multitenancy">#</doc-anchor-trigger>
-        <span>Multitenancy</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#health-check">#</doc-anchor-trigger>
+        <span>Health check</span>
     </h2>
 </doc-anchor-target>
-<p>L&#x27;api de persistence Foundation a été avant tout penser pour simplifier l&#x27;accès à plusieurs bases de données.</p>
-<doc-anchor-target id="liste-fixe-de-tenants">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#liste-fixe-de-tenants">#</doc-anchor-trigger>
-        <span>Liste fixe de tenants</span>
-    </h3>
-</doc-anchor-target>
-<p>Dans certains usecases, votre service se connecte à une liste prédéfinie de bases de données.
-Le descripteur yaml vous permet de définir cette liste de façon simple et intuitive.</p>
+<p>Pour avoir un état du service, l&#x27;uri <code v-pre>/health</code> est disponible en alias de <code v-pre>/actuator/health</code> (configuration par défaut SpringBoot)</p>
 <div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">application-default.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
-  default:
-    url: pg://postgres:postgres@localhost/general
-    migration: general
-  customer1:
-    url: pg://postgres:postgres@localhost/customer-1
-    migration: customers
-  customer2:
-    url: pg://postgres:postgres@localhost/customer-2
-    migration: customers  
-</code></pre>
-</doc-codeblock></div>
-<doc-anchor-target id="liste-dynamique-de-tenants">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#liste-dynamique-de-tenants">#</doc-anchor-trigger>
-        <span>Liste dynamique de tenants</span>
-    </h3>
-</doc-anchor-target>
-<p>En développant une solution de type SaaS, il est plus fréquent de se retrouver avec une liste de tenants dynamiques.
-Le fichier de configuration doit donc être adapté comme suit :</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">application-default.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
-  default:
-    url: pg://postgres:postgres@localhost/general
-    migration: general
-  __TENANT__:
-    url: pg://postgres:postgres@localhost/customers?schema=__TENANT__
-    migration: customers</code></pre>
-</doc-codeblock></div>
-<p>L&#x27;exemple ci-dessus utilise les schémas postgresql pour séparer les données de chaque client. Vous pouvez tout aussi bien
-utiliser une base de données pour chaque client comme suit:</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">application-default.yml</div>
-<pre class="language-yaml"><code v-pre class="language-yaml">app.db.datasources:
-  default: 
-    url: pg://postgres:postgres@localhost/general
-    migration: general
-  __TENANT__:
-    url: pg://postgres:postgres@localhost/__TENANT__
-    migration: customers</code></pre>
-</doc-codeblock></div>
-<p>Le mot clé <code v-pre>__TENANT__</code> sera remplacé par le <strong>tenant actif</strong>.</p>
-<p><strong>Retourer la liste dynamique de tenants</strong></p>
-<p>L&#x27;interfae <code v-pre>TenantsLoader</code> doit ensuite être implémentée pour créer automatiquement les datasources correspondantes.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">@Named
-public class MyTenantLoader implements TenantsLoader {
-
-    public Set&lt;String&gt; getTenantList() {
-        /* Récupérer et retouner la liste de tenants dynamique */
-    }
-
+<div class="codeblock-title">/health</div>
+<pre class="language-json"><code v-pre class="language-json">{
+  &quot;status&quot;: &quot;UP&quot;,
+  &quot;groups&quot;: [
+    &quot;liveness&quot;,
+    &quot;readiness&quot;
+  ]
 }</code></pre>
 </doc-codeblock></div>
-<doc-anchor-target id="activation-des-tenants">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#activation-des-tenants">#</doc-anchor-trigger>
-        <span>Activation des tenants</span>
-    </h3>
+<doc-anchor-target id="métriques-applicatives">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#métriques-applicatives">#</doc-anchor-trigger>
+        <span>Métriques applicatives</span>
+    </h2>
 </doc-anchor-target>
-<p>Une fois la configuration finalisée, votre service a besoin de basculer d&#x27;un tenant à l&#x27;autre.</p>
+<p>Votre application embarque par défault une exposition pour Prometheus disponible sur <code v-pre>/metrics</code> en alias de <code v-pre>/actuator/prometheus</code> (configuration par défaut SpringBoot)</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">/metrics</div>
+<pre class="language-none"><code v-pre class="language-none"># HELP executor_queued_tasks The approximate number of tasks that are queued for execution
+# TYPE executor_queued_tasks gauge
+executor_queued_tasks{name=&quot;applicationTaskExecutor&quot;,} 0.0
+executor_queued_tasks{name=&quot;taskScheduler&quot;,} 0.0
+# HELP executor_pool_core_threads The core number of threads for the pool
+# TYPE executor_pool_core_threads gauge
+executor_pool_core_threads{name=&quot;applicationTaskExecutor&quot;,} 8.0
+executor_pool_core_threads{name=&quot;taskScheduler&quot;,} 1.0
+# HELP system_cpu_count The number of processors available to the Java virtual machine
+# TYPE system_cpu_count gauge</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="logs">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#logs">#</doc-anchor-trigger>
+        <span>Logs</span>
+    </h2>
+</doc-anchor-target>
+<p>Foundation embarque <code v-pre>slf4j</code> pour la gestion des logs. Toutefois, au lieu d&#x27;utiliser directement le classe <code v-pre>org.slf4j.LoggerFactory</code> pour créer votre logger,
+remplacer par <code v-pre>dev.soffa.foundation.commons.Logger</code> vous permet de bénéficier de quelques avantages dont l&#x27;injection du contexte de la requête dans vos logs.
+Chaque log produit contiendra donc:</p>
 <ul>
-<li><code v-pre>dev.soffa.foundation.multitenancy.TenantHolder.set()</code></li>
-<li><code v-pre>dev.soffa.foundation.multitenancy.TenantHolder.use()</code></li>
-<li><code v-pre>dev.soffa.foundation.multitenancy.TenantHolder.useDefault()</code></li>
+<li>Le nom de l&#x27;application appelante</li>
+<li>Le tenant actif (si votre service est multitenant)</li>
+<li>Les informations de trace <code v-pre>traceId</code> et <code v-pre>spanId</code></li>
+<li>L&#x27;identifiant de l&#x27;utilisateur connecté (si applicable)</li>
 </ul>
 <div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">@Inject
-private  UserRepository users;
+<pre class="language-java"><code v-pre class="language-java">private static final Logger LOG = Logger.get(Application.class)
 
-// Retourne la liste des utilisateurs pour la datasource/tenant 'default)
-users.count(); 
-
-TenantHolder.set(&quot;customer1&quot;);
-// Tous les requêtes exécutée dans le même Thread après cette ligne
-// on redirigées vers le tenant 'customer1'
-// Retourne la liste des utilisateurs pour la datasource/tenant 'customer1'
-users.count(); 
-
-TenantHolder.set(&quot;customer2&quot;);
-// Retourne la liste des utilisateurs pour la datasource/tenant 'customer2'
-users.count(); 
-TenantHolder.use(&quot;customer1&quot;, () -&gt; {
-    // Exécuter temporairement un traiement dans les données du custome1
-});
-TenantHolder.useDefault(() -&gt; {
-    // Exécuter temporairement un traiement dans les données de la datasource par défaut
-});
-users.count();  // Données du customer2</code></pre>
+LOG.trace();
+LOG.info();
+LOG.debug();
+LOG.warn();
+LOG.error();</code></pre>
 </doc-codeblock></div>
+<p>Lorsque votre service démarre avec l&#x27;un des profils <code v-pre>production</code>, <code v-pre>prd</code> ou <code v-pre>prod</code>.</p>
+<doc-anchor-target id="exceptions">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#exceptions">#</doc-anchor-trigger>
+        <span>Exceptions</span>
+    </h2>
+</doc-anchor-target>
+<p>Les stacktraces en Java sont très verbeux et il est souvent difficile d&#x27;identifier rapidement la bonne information.
+Foundation intègre la librair <a href="https://github.com/michaelgantman/Mgnt">MgntUtils</a> pour supprimer des stacktraces les lignes qui ne sont pas pertinents.</p>
+<p>Au démarrage de votre application, le package principal est détecté et utilisé pour filter les traces d&#x27;erreurs.</p>
+<p>Lorsqu&#x27;une erreur survient lors d&#x27;un appel HTTP, le résultat est présenté en format JSON comme suit:</p>
+<blockquote>
+<p>Le champs <code v-pre>trace</code> est absent lorsque votre application démarre avec le profil <code v-pre>production</code>, <code v-pre>prd</code> ou <code v-pre>prod</code>.</p>
+</blockquote>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-json"><code v-pre class="language-json">
+{
+    &quot;timestamp&quot;: 1647613864069,
+    &quot;source&quot;: &quot;foundation-starter&quot;,
+    &quot;kind&quot;: &quot;TechnicalException&quot;,
+    &quot;status&quot;: 500,
+    &quot;message&quot;: &quot;Controlled exception&quot;,
+    &quot;prod&quot;: false,
+    &quot;traceId&quot;: &quot;4bbf888a-aecd-40b6-9941-3547b40eaedb&quot;,
+    &quot;spanId&quot;: &quot;d81bc41a-52e0-4158-b4f2-7c632649fdeb&quot;,
+    &quot;trace&quot;: [
+        &quot;&quot;,
+        &quot;dev.soffa.foundation.error.TechnicalException: Controlled exception&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho.handle(DoEcho.java:17)&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho.handle(DoEcho.java:12)&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho$$FastClassBySpringCGLIB$$e59a833b.invoke(&lt;generated&gt;)&quot;,
+        &quot;\tat org.springframework.cglib.proxy.MethodProxy.invoke(MethodProxy.java:218)&quot;,
+        &quot;\t...&quot;,
+        &quot;\tat foundation.app.core.handler.DoEcho$$EnhancerBySpringCGLIB$$5268e711.handle(&lt;generated&gt;)&quot;,
+        &quot;\tat dev.soffa.foundation.spring.service.OperationDispatcher.dispatch(OperationDispatcher.java:19)&quot;,
+        &quot;\t...&quot;,
+        &quot;\tat foundation.app.api.resource.EchoResource.echo(EchoResource.java:36)&quot;,
+        &quot;\tat java.base/java.lang.invoke.MethodHandle.invokeWithArguments(MethodHandle.java:509)&quot;,
+        &quot;\t...&quot;
+    ]
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="traces-distribuées-distributed-tracing">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#traces-distribuées-distributed-tracing">#</doc-anchor-trigger>
+        <span>Traces distribuées (Distributed tracing)</span>
+    </h2>
+</doc-anchor-target>
+<p>Les traces distribuées sont présentées dans la section <a href="../integration/tracing.md">Integration/Tracing</a></p>
+<doc-anchor-target id="pistes-daudit">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pistes-daudit">#</doc-anchor-trigger>
+        <span>Pistes d&#x27;audit</span>
+    </h2>
+</doc-anchor-target>
+<p>TODO</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -378,20 +382,20 @@ users.count();  // Données du customer2</code></pre>
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../data/persistence/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../integration/pubsub/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Persistence</span>
+                                                <span class="block mt-1">Pub​Sub</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../integration/introduction/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../commons/commons/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Intégration</span>
+                                                <span class="block mt-1">Commons</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -435,6 +439,6 @@ users.count();  // Données du customer2</code></pre>
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Persistance avancée", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Observabilité", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

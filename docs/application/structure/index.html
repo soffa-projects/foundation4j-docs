@@ -12,24 +12,24 @@
     <meta name="generator" content="Retype 2.3.0">
 
     <!-- Primary Meta Tags -->
-    <title>Int&#233;gration | Foundation</title>
-    <meta name="title" content="Intégration | Foundation">
-    <meta name="description" content="L'objectif de Foundation est de proposer une API indépendante de la couche technique. Ce principe prend encore plus de sens sur la partie intégration..." />
+    <title>Structure applicative | Foundation</title>
+    <meta name="title" content="Structure applicative | Foundation">
+    <meta name="description" content="Dans la terminologie de l'architecture hexagonale, un Inbound Gateway représente un point d'entrée de l'application: moyen par lequel les..." />
 
     <!-- Canonical -->
-    <link rel="canonical" href="https://foundation4j.soffa.dev/integration/introduction/" />
+    <link rel="canonical" href="https://foundation4j.soffa.dev/application/structure/" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://foundation4j.soffa.dev/integration/introduction/">
-    <meta property="og:title" content="Intégration | Foundation">
-    <meta property="og:description" content="L'objectif de Foundation est de proposer une API indépendante de la couche technique. Ce principe prend encore plus de sens sur la partie intégration...">
+    <meta property="og:url" content="https://foundation4j.soffa.dev/application/structure/">
+    <meta property="og:title" content="Structure applicative | Foundation">
+    <meta property="og:description" content="Dans la terminologie de l'architecture hexagonale, un Inbound Gateway représente un point d'entrée de l'application: moyen par lequel les...">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://foundation4j.soffa.dev/integration/introduction/">
-    <meta property="twitter:title" content="Intégration | Foundation">
-    <meta property="twitter:description" content="L'objectif de Foundation est de proposer une API indépendante de la couche technique. Ce principe prend encore plus de sens sur la partie intégration...">
+    <meta property="twitter:url" content="https://foundation4j.soffa.dev/application/structure/">
+    <meta property="twitter:title" content="Structure applicative | Foundation">
+    <meta property="twitter:description" content="Dans la terminologie de l'architecture hexagonale, un Inbound Gateway représente un point d'entrée de l'application: moyen par lequel les...">
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
@@ -38,6 +38,7 @@
     <script type="text/javascript" src="../../resources/js/config.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../../resources/js/retype.js?v=2.3.0" data-turbo-eval="false" defer></script>
     <script id="lunr-js" type="text/javascript" src="../../resources/js/lunr.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../../resources/js/prism.js?v=2.3.0.709083206849" defer></script>
 
     
     <link rel="stylesheet" href="/static/custom.css" />
@@ -247,33 +248,129 @@
                                 <div id="docs-sidebar-right-toggle"></div>
                 
                                 <!-- Page content  -->
-<doc-anchor-target id="intégration" class="break-words">
+<doc-anchor-target id="structure-applicative" class="break-words">
     <h1>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#intégration">#</doc-anchor-trigger>
-        <span>Intégration</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#structure-applicative">#</doc-anchor-trigger>
+        <span>Structure applicative</span>
     </h1>
 </doc-anchor-target>
-<p>L&#x27;objectif de Foundation est de proposer une API indépendante de la couche technique.
-Ce principe prend encore plus de sens sur la partie intégration à des composants externes tels que:</p>
-<ul>
-<li>Un serveur d&#x27;envoi de Mails (SMTP, API, etc)</li>
-<li>Un serveur d&#x27;envoi de SMS (Twilio, Infobip, etc)</li>
-<li>Un serveur de messages (Nats, Kafka, RabbitMQ)</li>
-<li>Un serveur de stockage objets type S3</li>
-<li>Etc</li>
-</ul>
-<doc-anchor-target id="roadmap">
+<picture>
+  <source srcset="/static/img/overview_dark.png" media="(prefers-color-scheme: dark)">
+  <img src="/static/img/overview.png">
+</picture>
+<doc-anchor-target id="inbound-gateways">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#inbound-gateways">#</doc-anchor-trigger>
+        <span>Inbound Gateways</span>
+    </h2>
+</doc-anchor-target>
+<p>Dans la terminologie de l&#x27;architecture hexagonale, un <em>Inbound Gateway</em> représente un point d&#x27;entrée de l&#x27;application: moyen par lequel les fonctionnalités peuvent être consommées par un client.</p>
+<doc-anchor-target id="pubsub">
     <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#roadmap">#</doc-anchor-trigger>
-        <span>Roadmap</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#pubsub">#</doc-anchor-trigger>
+        <span>PubSub</span>
     </h3>
 </doc-anchor-target>
-<ul class="contains-task-list">
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Envoi de mails</li>
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Pattern Publish Subscribe</li>
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Stockage objets (protocole S3)</li>
-<li class="task-list-item"><input disabled="disabled" type="checkbox" checked="checked" /> Envoi de SMS</li>
-</ul>
+<p>Lorsque le module <code v-pre>pubsub</code> est activé, toutes les opérations que vous déclarez sont automatiquement consommables (via RabbitMQ, Kafka ou Nats en fonction de votre choix).
+Le binding par défaut se base sur le nom de l&#x27;interface de votre opération.
+Toutefois, l&#x27;annotation <code v-pre>@Handle</code> permet de personnaliser le nom de l&#x27;événement à traiter.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">HandleNewApplication.kt</div>
+<pre class="language-kotlin"><code v-pre class="language-kotlin">@Named
+@Handle(&quot;ApplicationStarted&quot;)
+class HandleNewApplication : OnApplicationCreated {
+
+    override fun handle(input: Application, ctx: Context) {
+        Log.info(&quot;A new application [%s] was created.&quot;, input.name)
+    }
+
+}</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="scheduler">
+    <h3>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#scheduler">#</doc-anchor-trigger>
+        <span>Scheduler</span>
+    </h3>
+</doc-anchor-target>
+<p>Dans la version actuelle, Foundation conserve l&#x27;annotation <code v-pre>@Scheduled</code> de SpringBoot</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">IntentWorker.kt</div>
+<pre class="language-kotlin"><code v-pre class="language-kotlin">@Named
+class IntentWorker {
+
+    @Scheduled(...)
+    fun processPaymentIntents() {
+    }
+}</code></pre>
+</doc-codeblock></div>
+<p>Toutefois, l&#x27;API devrait évoluer pour offrir d&#x27;autres mécanismes</p>
+<doc-anchor-target id="operation">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#operation">#</doc-anchor-trigger>
+        <span>Operation</span>
+    </h2>
+</doc-anchor-target>
+<p>Déclarer une opération commence par la définition de l&#x27;interface correspondante dans le package <code v-pre>-api</code>.<br />
+L&#x27;interface <code v-pre>dev.soffa.foundation.core.Operation&lt;Input, Output&gt;</code> est générique et requiert la définition des classes <code v-pre>Input</code> ou <code v-pre>Output</code>
+du Operation. Lorsque votre Operation n&#x27;accepte pas d&#x27;input, vous pouvez utiliser la classe <code v-pre>Void</code>.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">CreatePaymentIntent.kt</div>
+<pre class="language-kotlin"><code v-pre class="language-kotlin">import dev.soffa.foundation.core.Operation
+
+interface CreatePaymentIntent : Operation&lt;CreatePaymentIntentInput, PaymentIntent&gt;</code></pre>
+</doc-codeblock></div>
+<p>L&#x27;implémentation du <code v-pre>Operation</code> (dans le module <code v-pre>-service</code>) surcharge la méthode <code v-pre>handle</code> avec les classes Input et Output définies dans la signature et
+un paramètre suppélementaire de type <code v-pre>Context</code>. Ce second paramètre vous permet d&#x27;accéder à plusieurs informations relatives au contexte
+de la requête en cours.</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<div class="codeblock-title">DoCreatePaymentIntent.kt</div>
+<pre class="language-kotlin"><code v-pre class="language-kotlin">@Named
+class DoCreatePaymentIntent: CreatePaymentIntent {
+
+    override fun handle(
+            input: CreatePaymentIntentInput, 
+            context: Context
+        ): PaymentIntent {
+    }
+}
+</code></pre>
+</doc-codeblock></div>
+<doc-anchor-target id="outbound-gateways">
+    <h2>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#outbound-gateways">#</doc-anchor-trigger>
+        <span>Outbound Gateways</span>
+    </h2>
+</doc-anchor-target>
+<p>Lorsque l&#x27;implémentation d&#x27;une Operation a besoin d&#x27;accéder à des composants externes (base de données, communication avec un service externe, etc),
+il est important de toujours passer par une interface pour respecter le pattern Port/Adapter.</p>
+<p>Pour accéder à une base de données par exemple, l&#x27; Operation devrait ressembler à ceci:</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-kotlin"><code v-pre class="language-kotlin">
+@Named
+class DoAddTodo(private val todos: TodoRepository) : AddTodo {
+
+    @TenantRequired
+    @Authenticated
+    override fun handle(input: AddTodoInput, context: Context): Todo {
+        val todo = Todo(
+            IdGenerator.shortUUID(&quot;t&quot;),
+            input.content!!,
+            TodoStatus.PENDING,
+            Date.from(Instant.now())
+        )
+        return todos.insert(todo)
+    }</code></pre>
+</doc-codeblock></div>
+<p>L&#x27;interface <code v-pre>TodoRespoitory</code> est définie comme suit :</p>
+<div class="codeblock-wrapper"><doc-codeblock>
+<pre class="language-kotlin"><code v-pre class="language-kotlin">interface TodoRepository {
+
+    fun insert(model: Todo): Todo
+
+}</code></pre>
+</doc-codeblock></div>
+<p>Le développeur peut ensuite définir l&#x27;implémentation correspondante dans le package <code v-pre>gateways.outbound</code> car il s&#x27;agit d&#x27;une communication
+storate de l&#x27;application vers un composant externe.</p>
 
                                 
                                 <!-- Required only on API pages -->
@@ -283,20 +380,20 @@ Ce principe prend encore plus de sens sur la partie intégration à des composan
                             
                                 <nav class="flex mt-14">
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../application/scheduling/">
+                                        <a class="px-5 py-4 h-full flex items-center break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-l-lg transition-colors duration-150 relative hover:z-5" href="../../start/">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="mr-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19 11H7.41l5.29-5.29a.996.996 0 10-1.41-1.41l-7 7a1 1 0 000 1.42l7 7a1.024 1.024 0 001.42-.01.996.996 0 000-1.41L7.41 13H19c.55 0 1-.45 1-1s-.45-1-1-1z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                             <span>
                                                 <span class="block text-xs font-normal text-gray-400 dark:text-dark-400">Previous</span>
-                                                <span class="block mt-1">Tâches planifiées</span>
+                                                <span class="block mt-1">Bien démarrer</span>
                                             </span>
                                         </a>
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../integration/mail/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../../application/resources/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
-                                                <span class="block mt-1">Envoi de mails</span>
+                                                <span class="block mt-1">Module API</span>
                                             </span>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="ml-3" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" overflow="visible"><path d="M19.92 12.38a1 1 0 00-.22-1.09l-7-7a.996.996 0 10-1.41 1.41l5.3 5.3H5c-.55 0-1 .45-1 1s.45 1 1 1h11.59l-5.29 5.29a.996.996 0 000 1.41c.19.2.44.3.7.3s.51-.1.71-.29l7-7c.09-.09.16-.21.21-.33z" /><path fill="none" d="M0 0h24v24H0z" /></svg>
                                         </a>
@@ -340,6 +437,6 @@ Ce principe prend encore plus de sens sur la partie intégration à des composan
 
     <div id="docs-overlay-target"></div>
 
-    <script>window.__DOCS__ = { "title": "Intégration", level: 2, icon: "file", hasPrism: false, hasMermaid: false, hasMath: false }</script>
+    <script>window.__DOCS__ = { "title": "Structure applicative", level: 2, icon: "file", hasPrism: true, hasMermaid: false, hasMath: false }</script>
 </body>
 </html>

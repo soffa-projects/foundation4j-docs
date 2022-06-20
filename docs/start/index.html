@@ -6,7 +6,7 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.3.0.709077869818">
+    <meta name="turbo-cache-control" content="no-cache" data-turbo-track="reload" data-track-token="2.3.0.709083206849">
 
     <!-- See retype.com -->
     <meta name="generator" content="Retype 2.3.0">
@@ -35,12 +35,12 @@
 
     <script>(function () { var el = document.documentElement, m = localStorage.getItem("doc_theme"), wm = window.matchMedia; if (m === "dark" || (!m && wm && wm("(prefers-color-scheme: dark)").matches)) { el.classList.add("dark") } else { el.classList.remove("dark") } })();</script>
 
-    <link href="../resources/css/retype.css?v=2.3.0.709077869818" rel="stylesheet" />
+    <link href="../resources/css/retype.css?v=2.3.0.709083206849" rel="stylesheet" />
 
-    <script type="text/javascript" src="../resources/js/config.js?v=2.3.0.709077869818" data-turbo-eval="false" defer></script>
+    <script type="text/javascript" src="../resources/js/config.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
     <script type="text/javascript" src="../resources/js/retype.js?v=2.3.0" data-turbo-eval="false" defer></script>
-    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.3.0.709077869818" data-turbo-eval="false" defer></script>
-    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.3.0.709077869818" defer></script>
+    <script id="lunr-js" type="text/javascript" src="../resources/js/lunr.js?v=2.3.0.709083206849" data-turbo-eval="false" defer></script>
+    <script id="prism-js" type="text/javascript" src="../resources/js/prism.js?v=2.3.0.709083206849" defer></script>
 
     
     <link rel="stylesheet" href="/static/custom.css" />
@@ -294,171 +294,19 @@ listOf(&quot;api&quot;, &quot;service&quot;).forEach {
 <li>Personnaliser le package, par défault à <code v-pre>foundation.app</code></li>
 </ol>
 <p>Voilà, vous pouvez commencer à travailler !</p>
-<doc-anchor-target id="anatomie-dun-projet">
+<doc-anchor-target id="structure-projet">
     <h2>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#anatomie-dun-projet">#</doc-anchor-trigger>
-        <span>Anatomie d&#x27;un projet</span>
+        <doc-anchor-trigger class="header-anchor-trigger" to="#structure-projet">#</doc-anchor-trigger>
+        <span>Structure projet</span>
     </h2>
 </doc-anchor-target>
 <p>Par défault, un projet créé avec le client <code v-pre>foundation</code> utilisera le template projet que nous recommandons.
 Ce template est un projet Gradle avec deux modules : <code v-pre>api</code> et <code v-pre>service</code>.</p>
 <p><figure class="content-center">
-    <img src="../static/img/project_structure.png" alt="Anatomie d'un projet Foundation" />
-    <figcaption class="caption">Anatomie d&#x27;un projet Foundation</figcaption>
+    <img src="../static/img/project_structure.png" alt="Structure  d'un projet Foundation" />
+    <figcaption class="caption">Structure  d&#x27;un projet Foundation</figcaption>
 </figure>
 </p>
-<doc-anchor-target id="module-api">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#module-api">#</doc-anchor-trigger>
-        <span>Module API</span>
-    </h3>
-</doc-anchor-target>
-<p>Contient la description, avec un vocabulatire fonctionnel, de ce que l&#x27;application <strong>doit</strong> implémenter come <strong>usecases</strong> et <strong>ressources</strong>.</p>
-<p>Dans les packages qui sont proposés, vous retrouvez:</p>
-<doc-anchor-target id="package-apischema">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-apischema">#</doc-anchor-trigger>
-        <span>Package api.schema</span>
-    </h4>
-</doc-anchor-target>
-<p>Ce package contient le modèle de données (POJO) manipulés et produits par les usecases.</p>
-<doc-anchor-target id="package-apiusecase">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-apiusecase">#</doc-anchor-trigger>
-        <span>Package api.usecase</span>
-    </h4>
-</doc-anchor-target>
-<p>Ce package contient les interfaces décrivant les fonctionnalités du projet. Chaque usecase utilise un verbe en anglais pour clairement décrire
-la responsabilité.</p>
-<p>En terme de bonnes pratiques, nous recommandons ce qui suit:</p>
-<ul>
-<li>Un verbe commençant par <code v-pre>Get</code> indique qu&#x27;il s&#x27;agit d&#x27;une opération de lecture (Query)</li>
-<li>Un verbe commençant par <code v-pre>On</code> indique qu&#x27;il s&#x27;git d&#x27;un événement (Event)</li>
-<li>Tous les autres usecases sont considérés comme des opérations d&#x27;écriture (Command)</li>
-</ul>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">Echo.java</div>
-<pre class="language-java"><code v-pre class="language-java">package foundation.app.api.usecase;
-
-import dev.soffa.foundation.core.UseCase;
-import foundation.app.api.schema.EchoInput;
-import foundation.app.api.schema.Message;
-
-public interface Echo extends UseCase&lt;EchoInput, Message&gt; {}
-</code></pre>
-</doc-codeblock></div>
-<p>La définition d&#x27;un UseCase est une simple interface qui étend <code v-pre>dev.soffa.foundation.core.UseCase</code>.
-En ouvrant l&#x27;interface, on peut donc avoir une idée générale de que cette opération est censée faire, quel est l&#x27;input et quel est l&#x27;output.</p>
-<p>Il est donc recommandé de toujours choisir une terminologie fonctionnelle simple à comprendre : <a href="https://www.martinfowler.com/bliki/UbiquitousLanguage.html" target="_blank"><em>Ubiquitous Language</em></a>.</p>
-<doc-anchor-target id="package-apiresources">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#package-apiresources">#</doc-anchor-trigger>
-        <span>Package api.resources</span>
-    </h4>
-</doc-anchor-target>
-<p>Ce package contient les interfaces des ressources que le projet expose (en REST, GraphQL, etc).
-Une ressource est une interface qui expose plusieurs opérations. Foundation inclut plusieurs dépendances par défaut, dont OpenAPI pour la documentation des APIs.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<div class="codeblock-title">EchoResource.java</div>
-<pre class="language-java"><code v-pre class="language-java">@Tags(
-    @Tag(name = &quot;Echo&quot;, description = &quot;All things echo messaging&quot;)
-)
-@RestController // Cette interface sera implémentée automatiquement lorsque cette annotation est présente + Resource
-public interface EchoResource extends Resource {
-
-    /**
-     * Commentaire développeur pour la méthode echo
-     *
-     * @param input   Données utilisateur
-     * @param context Injectée automatiquement avec les informations de la requête en cours (n'apparaît pas dans la documentation OpenAPI)
-     */
-    @Operation(
-        method = &quot;POST&quot;,
-        summary = &quot;Echo the input message&quot;
-    )
-    @PostMapping(&quot;echo&quot;)
-    default Message echo(@Valid @RequestBody EchoInput input, Context context) {
-        return invoke(Echo.class, input, context);
-    }
-
-}
-</code></pre>
-</doc-codeblock></div>
-<p>La méthode <code v-pre>invoke</code> déclarée dans l&#x27;inteface <code v-pre>Resource</code> permet au développeur de faire le mapping entre l&#x27;opération et
-le bone usecase.</p>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Même si vous constatez des annotations SpringBoot à ce niveau, il ne s&#x27;agit que d&#x27;annotations. Les fichier correspodants ont été copier depuis le projet officiel Spring
-et coller dans <code v-pre>foundation-api</code> pour ne pas avoir à inclure toute la dépendance Spring dans ce module API.
-L&#x27;interprétation de ces interfaces n&#x27;est faite que dans la partie <code v-pre>app-service</code>.</p>
-        </div>
-    </div>
-</div>
-<doc-anchor-target id="importance-du-module-api">
-    <h4>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#importance-du-module-api">#</doc-anchor-trigger>
-        <span>Importance du module API</span>
-    </h4>
-</doc-anchor-target>
-<p>Le module API permet de décrire le fonctionnement de votre service mais aussi de servir d&#x27;interface pour les clients. En effet, le module <code v-pre>api</code> pouvant être publié séparement dans un serveur nexus,
-peut être rajouté comme dépendance dans un autre service dans lequel le code suivant peut etre utilisé :</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">/* Logique présent dans un service-a souhaitant consommer une ressource du service-b */
-EchoResource client = RestClient.newInstance(EchoResource.class, &quot;https://service-b&quot;);
-Message response = client.echo(new EchoInput(&quot;Hello&quot;), new Context());</code></pre>
-</doc-codeblock></div>
-<p>Il n&#x27;y a donc aucune génération de client à prévoir lorsque votre ressource doit être consommer depuis un code Java/Kotlin.</p>
-<doc-anchor-target id="module-service">
-    <h3>
-        <doc-anchor-trigger class="header-anchor-trigger" to="#module-service">#</doc-anchor-trigger>
-        <span>Module Service</span>
-    </h3>
-</doc-anchor-target>
-<p>Le module <code v-pre>app-service</code> contient l&#x27;implémentation de vos différents usecases à travers des <code v-pre>handlers</code> et autres classes support.</p>
-<div class="codeblock-wrapper"><doc-codeblock>
-<pre class="language-java"><code v-pre class="language-java">package foundation.app.core.handler;
-
-...
-import javax.inject.Named;
-
-@Named
-public class DoEcho implements Echo {
-
-    @Override
-    public Message handle(EchoInput input, @NonNull Context context) {
-        return new Message(input.getMessage());
-    }
-</code></pre>
-</doc-codeblock></div>
-<div class="flex mb-6">
-    <div class="shrink-0 w-1 rounded-tl rounded-bl bg-blue-500 dark:bg-blue-400"></div>
-    <div class="flex w-full py-4 border border-l-0 border-gray-300 rounded-tr rounded-br doc-alert bg-white dark:bg-dark-700 dark:border-dark-700" role="alert">
-        <div class="flex items-center ml-4 h-7">
-            <svg xmlns="http://www.w3.org/2000/svg" class="mb-px text-blue-500 dark:text-blue-400" width="22" height="22" viewBox="0 0 24 24" role="presentation">
-                <g fill="currentColor"><g>
-                    <path d="M12 1C5.93 1 1 5.93 1 12s4.93 11 11 11 11-4.93 11-11S18.07 1 12 1zm0 20c-4.96 0-9-4.04-9-9s4.04-9 9-9 9 4.04 9 9-4.04 9-9 9z"></path>
-                    <path d="M12 11c-.55 0-1 .45-1 1v4c0 .55.45 1 1 1s1-.45 1-1v-4c0-.55-.45-1-1-1zM12.01 7c-.56 0-1 .45-1 1s.45 1 1 1 1-.45 1-1-.45-1-1-1z"></path>
-                    <path fill="none" d="M0 0h24v24H0z"></path>
-                </g></g>
-            </svg>
-        </div>
-        <div class="pr-5 ml-3 w-full">
-<p>Foundation est construit sur SpringBoot. Toutefois, grâce à la fonctionnalit&quot; <code v-pre>implementation</code> de gradle, le développeur n&#x27;a pas accès aux différentes classes Spring.
-Ceci est fait par design pour encourager l&#x27;utilisateur de classes simplement définies ainsi que de classe telel que <code v-pre>javax.inject.Named</code> au lieu de <code v-pre>@Component</code>, <code v-pre>@Service</code> (...) de Spring.</p>
-        </div>
-    </div>
-</div>
 <doc-anchor-target id="plugin-gradle">
     <h2>
         <doc-anchor-trigger class="header-anchor-trigger" to="#plugin-gradle">#</doc-anchor-trigger>
@@ -470,7 +318,7 @@ Ce plugin permet de simplifier certaines configuration projet.</p>
 <div class="codeblock-wrapper"><doc-codeblock>
 <pre class="language-kotlin"><code v-pre class="language-kotlin">buildscript {
     dependencies {
-        classpath(&quot;dev.soffa.foundation:foundation-gradle-plugin:1.0.11&quot;)
+        classpath(&quot;dev.soffa.foundation:foundation-gradle-plugin:1.0.14&quot;)
     }
 }</code></pre>
 </doc-codeblock></div>
@@ -707,7 +555,7 @@ Nous vous invitons à consulter <a href="https://github.com/soffalabs/foundation
                                     </div>
                             
                                     <div class="w-1/2">
-                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../application/overview/">
+                                        <a class="px-5 py-4 -mx-px h-full flex items-center justify-end break-normal font-medium text-blue-500 dark:text-blue-400 border border-gray-300 hover:border-gray-400 dark:border-dark-650 dark:hover:border-dark-450 rounded-r-lg transition-colors duration-150 relative hover:z-5" href="../application/structure/">
                                             <span>
                                                 <span class="block text-xs font-normal text-right text-gray-400 dark:text-dark-400">Next</span>
                                                 <span class="block mt-1">Structure applicative</span>
