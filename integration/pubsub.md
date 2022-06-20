@@ -49,7 +49,11 @@ messenger.subscribe("canal-01", message -> {
 
 // Transmettre des messages
 messenger.publish("subject-01", MessageFactory.create("operation-test"));
-messenger.publish("subject-01", MessageFactory.create("operation-test", ImmutableMap.of("id", "1625165267152")));
-
-
+messenger.publish(
+    "subject-01", 
+    MessageFactory.create(
+        "operation-test", 
+        ImmutableMap.of("id", "1625165267152")
+    )
+);
 ```
